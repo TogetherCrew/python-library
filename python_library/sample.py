@@ -29,7 +29,7 @@ class Sample:
 
         return computation_results
 
-    def sample_get_env(self) -> str:
+    def sample_get_env(self) -> str | None:
         """
         getting an env for example
         the env name is `SAMPLE_ENV`
