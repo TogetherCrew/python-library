@@ -4,16 +4,17 @@ on: pull_request
 
 jobs:
   ci:
-    steps:
-      uses: TogetherCrew/operations/.github/workflows/ci.yml@main
-      secrets:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          - name: Build package
-          run: |
-            python setup.py sdist bdist_wheel
-      - name: Publish package to PyPI
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          python -m twine upload dist/*
+    uses: TogetherCrew/operations/.github/workflows/ci.yml@main
+    secrets:
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+  - package_publish:
+    - name: Build package
+      run: |
+        python setup.py sdist bdist_wheel
+    - name: Publish package to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+      run: |
+        python -m twine upload dist/*
+  
