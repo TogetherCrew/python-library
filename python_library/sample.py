@@ -1,4 +1,5 @@
 import numpy as np
+import os
 from dotenv import load_dotenv
 
 
@@ -40,8 +41,6 @@ class Sample:
         """
         load_dotenv()
 
-        # env_value = os.getenv("SAMPLE_ENV")
-        ## TODO: revert to read from env
-        env_value = "SAMPLE_ENV"
+        env_value = os.getenv("SAMPLE_ENV")
 
         return env_value
