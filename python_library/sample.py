@@ -41,6 +41,8 @@ class Sample:
         """
         load_dotenv()
 
-        env_value = os.getenv("SAMPLE_ENV")
+        # env_value = os.getenv("SAMPLE_ENV")
+        ## TODO: revert to read from env
+        env_value = "SAMPLE_ENV"
 
         return env_value
